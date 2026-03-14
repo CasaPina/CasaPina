@@ -3,578 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casa Pina B&B | Spoltore - Vicino Pescara e il Mare</title>
-    <meta name="description" content="Casa Pina B&B - Accogliente appartamento a Spoltore, a 10 minuti dal mare di Pescara. Ideale per coppie e famiglie fino a 4 ospiti.">
-    <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap)" rel="stylesheet">
+    <title>Casa Pina B&B | Spoltore, Abruzzo</title>
+    <meta name="description" content="Casa Pina B&B - Appartamento elegante e accogliente a Spoltore, tra le colline e il mare. A 10 minuti da Pescara.">
+
     <style>
         :root {
-            --verde-scuro: #2d5a47;
-            --verde-medio: #4a7c59;
-            --verde-chiaro: #8fbc8f;
-            --crema: #f5f1e8;
-            --sabbia: #e8e0d0;
-            --terracotta: #c17f59;
-            --testo: #3a3a3a;
-            --bianco: #ffffff;
+            --background: #f3e9dd; 
+            --light: #f7f3ed;
+            --white: #ffffff;
+            --text: #3b362f;
+            --terracotta: #c26a4a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Lato', sans-serif;
-            color: var(--testo);
-            line-height: 1.7;
-            background-color: var(--crema);
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
         }
 
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(45, 90, 71, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: 1rem 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--crema);
-            text-decoration: none;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--terracotta);
-        }
-
-        /* Hero Section */
+        /* HERO */
         .hero {
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--verde-scuro) 0%, var(--verde-medio) 50%, var(--verde-chiaro) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
             position: relative;
-            overflow: hidden;
+            height: 90vh;
+            background: url('hero.jpg') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
-        .hero::before {
-            content: '';
+        .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 40%);
+            inset: 0;
+            background: rgba(0,0,0,0.20);
         }
-
         .hero-content {
             position: relative;
-            z-index: 1;
+            text-align: center;
+            color: var(--white);
         }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            color: var(--crema);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
+        .hero-content img {
+            width: 160px;
+            margin-bottom: 20px;
         }
-
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
-            color: var(--sabbia);
-            margin-bottom: 1rem;
-            font-weight: 300;
+        .hero-title {
+            font-size: 2.2rem;
             letter-spacing: 2px;
+            font-weight: 300;
         }
-
-        .hero .tagline {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-            color: var(--bianco);
-            font-style: italic;
-            margin-bottom: 2.5rem;
-        }
-
-        .hero-cta {
-            display: inline-block;
+        .btn {
             background: var(--terracotta);
-            color: var(--bianco);
-            padding: 1rem 2.5rem;
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 30px;
             text-decoration: none;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            border: 2px solid var(--terracotta);
+            margin-top: 25px;
+            display: inline-block;
         }
 
-        .hero-cta:hover {
-            background: transparent;
-            color: var(--crema);
-            border-color: var(--crema);
-        }
-
-        /* Sections */
         section {
-            padding: 5rem 2rem;
-        }
-
-        .container {
+            padding: 80px 20px;
             max-width: 1100px;
-            margin: 0 auto;
+            margin: auto;
         }
 
         h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            color: var(--verde-scuro);
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+            font-size: 2rem;
         }
 
-        .section-intro {
+        .intro {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto 3rem;
-            color: var(--verde-medio);
-            font-size: 1.1rem;
+            margin: 0 auto 50px;
+            color: #5a5046;
         }
 
-        /* Appartamento Section */
-        .appartamento {
-            background: var(--bianco);
-        }
-
-        .features-grid {
+        /* APPARTAMENTO */
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
         }
-
-        .feature-card {
-            background: var(--crema);
-            padding: 2rem;
+        .feature {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 12px;
             text-align: center;
-            border-left: 4px solid var(--verde-medio);
-            transition: transform 0.3s;
+        }
+        .feature span {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--verde-scuro);
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-        }
-
-        .feature-card p {
-            color: var(--testo);
-            font-size: 0.95rem;
-        }
-
-        /* Comfort Section */
-        .comfort {
-            background: linear-gradient(to bottom, var(--crema), var(--sabbia));
-        }
-
-        .comfort-list {
+        /* COMFORT */
+        .comfort-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
         }
-
-        .comfort-item {
+        .comfort {
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--bianco);
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            gap: 12px;
         }
 
-        .comfort-item span:first-child {
-            font-size: 1.5rem;
-        }
-
-        /* Posizione Section */
-        .posizione {
-            background: var(--verde-scuro);
-            color: var(--crema);
-        }
-
-        .posizione h2 {
-            color: var(--crema);
-        }
-
-        .posizione .section-intro {
-            color: var(--sabbia);
-        }
-
+        /* POSIZIONE */
         .luoghi-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
         }
-
-        .luogo-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-left: 3px solid var(--terracotta);
+        .luogo {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
         }
-
-        .luogo-card h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--bianco);
-            margin-bottom: 0.5rem;
+        .luogo img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
         }
-
-        .luogo-card .tempo {
+        .luogo-content {
+            padding: 15px 18px 25px;
+        }
+        .tempo {
             color: var(--terracotta);
-            font-weight: 700;
+            font-weight: bold;
+            margin-bottom: 8px;
             font-size: 0.9rem;
-            margin-bottom: 0.5rem;
         }
 
-        .luogo-card p {
-            font-size: 0.9rem;
-            color: var(--sabbia);
+        /* MAPPA */
+        iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 12px;
         }
 
-        /* Contatti Section */
-        .contatti {
-            background: var(--bianco);
-        }
-
-        .contatti-wrapper {
+        /* RECENSIONI */
+        .rec-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            align-items: start;
+            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+            gap: 25px;
+        }
+        .rec-card {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 12px;
+            font-style: italic;
+        }
+        .rec-author {
+            margin-top: 15px;
+            font-weight: bold;
+            font-style: normal;
         }
 
-        .contatti-info h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--verde-scuro);
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+        .rec-btns {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .rec-btns a {
+            display: inline-block;
+            background: var(--terracotta);
+            color: var(--white);
+            padding: 12px 22px;
+            margin: 5px;
+            border-radius: 25px;
+            text-decoration: none;
         }
 
-        .contatto-item {
+        /* SOCIAL BUTTONS */
+        .social-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .social-container a {
+            margin: 0 10px;
+            color: var(--terracotta);
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        /* WHATSAPP FLOATING BUTTON */
+        .wa-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25d366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            font-size: 30px;
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: var(--crema);
-            transition: background 0.3s;
-        }
-
-        .contatto-item:hover {
-            background: var(--sabbia);
-        }
-
-        .contatto-item span:first-child {
-            font-size: 1.5rem;
-        }
-
-        .contatto-item a {
-            color: var(--verde-scuro);
+            justify-content: center;
             text-decoration: none;
-            font-size: 1.1rem;
+            z-index: 999;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        .contatto-item a:hover {
-            color: var(--terracotta);
-        }
-
-        .airbnb-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: #ff5a5f;
-            color: var(--bianco);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            font-size: 1.1rem;
-            margin-top: 1rem;
-            transition: background 0.3s;
-        }
-
-        .airbnb-btn:hover {
-            background: #e04e53;
-        }
-
-        .mappa {
-            background: var(--sabbia);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .mappa h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--verde-scuro);
-            margin-bottom: 1rem;
-        }
-
-        .mappa p {
-            margin-bottom: 1rem;
-        }
-
-        .mappa-link {
-            display: inline-block;
-            color: var(--verde-scuro);
-            font-weight: 700;
-            text-decoration: none;
-            border-bottom: 2px solid var(--terracotta);
-            padding-bottom: 2px;
-        }
-
-        .mappa-link:hover {
-            color: var(--terracotta);
-        }
-
-        /* Footer */
         footer {
-            background: var(--verde-scuro);
-            color: var(--sabbia);
             text-align: center;
-            padding: 2rem;
+            padding: 40px;
+            color: #6b6256;
         }
 
-        footer p {
-            font-size: 0.9rem;
-        }
-
-        footer .nome {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            color: var(--crema);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                gap: 1rem;
-            }
-
-            nav a {
-                font-size: 0.85rem;
-            }
-
-            section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#appartamento">L'Appartamento</a></li>
-            <li><a href="#comfort">Comfort</a></li>
-            <li><a href="#posizione">Posizione</a></li>
-            <li><a href="#contatti">Contatti</a></li>
-        </ul>
-    </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Casa Pina</h1>
-            <p class="subtitle">BED & BREAKFAST</p>
-            <p class="tagline">Tra le colline e il mare d'Abruzzo</p>
-            <a href="#contatti" class="hero-cta">Prenota il tuo soggiorno</a>
+    <!-- HERO -->
+    <header>
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <img src="logo.png" alt="Logo Casa Pina">
+                <h1 class="hero-title">Casa Pina • B&B</h1>
+                <a href="#contatti" class="btn">Prenota il tuo soggiorno</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- APPARTAMENTO -->
+    <section id="appartamento">
+        <h2>L'appartamento</h2>
+        <p class="intro">Un appartamento elegante e accogliente a Spoltore, tra il verde delle colline e il blu del mare.</p>
+
+        <div class="features">
+            <div class="feature"><span>🛏️</span>Camera matrimoniale</div>
+            <div class="feature"><span>🛋️</span>Divano letto</div>
+            <div class="feature"><span>🏡</span>Intero appartamento</div>
+            <div class="feature"><span>👨‍👩‍👧‍👦</span>Fino a 4 ospiti</div>
         </div>
     </section>
 
-    <section class="appartamento" id="appartamento">
-        <div class="container">
-            <h2>L'Appartamento</h2>
-            <p class="section-intro">Un rifugio accogliente a Spoltore, dove il verde delle colline incontra la brezza del mare. Casa Pina ti aspetta per un soggiorno autentico in Abruzzo.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🛏️</div>
-                    <h3>Camera Matrimoniale</h3>
-                    <p>Una camera spaziosa e luminosa per il tuo riposo, arredata con cura nei dettagli.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛋️</div>
-                    <h3>Divano Letto</h3>
-                    <p>Comodo divano letto per ospitare fino a 2 persone aggiuntive, perfetto per famiglie o gruppi di amici.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👨‍👩‍👧‍👦</div>
-                    <h3>Fino a 4 Ospiti</h3>
-                    <p>Spazio ideale per coppie, famiglie o piccoli gruppi che cercano tranquillità e comodità.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏡</div>
-                    <h3>Intero Appartamento</h3>
-                    <p>Privacy totale: l'intero appartamento è a tua disposizione per vivere come a casa tua.</p>
-                </div>
-            </div>
+    <!-- COMFORT -->
+    <section id="comfort">
+        <h2>Comfort</h2>
+
+        <div class="comfort-grid">
+            <div class="comfort">📶 Wi‑Fi gratuito</div>
+            <div class="comfort">❄️ Aria condizionata</div>
+            <div class="comfort">🍳 Cucina attrezzata</div>
+            <div class="comfort">🚿 Bagno privato</div>
+            <div class="comfort">🧴 Set cortesia</div>
+            <div class="comfort">🅿️ Parcheggio</div>
         </div>
     </section>
 
-    <section class="comfort" id="comfort">
-        <div class="container">
-            <h2>I Nostri Comfort</h2>
-            <p class="section-intro">Tutto il necessario per un soggiorno sereno e confortevole.</p>
-            
-            <div class="comfort-list">
-                <div class="comfort-item">
-                    <span>📶</span>
-                    <span>Wi-Fi gratuito</span>
+    <!-- POSIZIONE -->
+    <section id="posizione">
+        <h2>Posizione</h2>
+        <p class="intro">Nel cuore dell’Abruzzo: mare, città, natura e tradizione a pochi minuti.</p>
+
+        <div class="luoghi-grid">
+            <div class="luogo">
+                <img src="spiaggia.jpg" alt="Spiagge di Pescara">
+                <div class="luogo-content">
+                    <div class="tempo">10 minuti</div>
+                    <h3>Spiagge di Pescara</h3>
+                    Mare limpido e sabbia dorata.
                 </div>
-                <div class="comfort-item">
-                    <span>❄️</span>
-                    <span>Aria condizionata</span>
+            </div>
+
+            <div class="luogo">
+                <img src="centro.jpg" alt="Centro di Pescara">
+                <div class="luogo-content">
+                    <div class="tempo">10 minuti</div>
+                    <h3>Centro di Pescara</h3>
+                    Shopping, ristoranti, vita urbana.
                 </div>
-                <div class="comfort-item">
-                    <span>📺</span>
-                    <span>Smart TV</span>
+            </div>
+
+            <div class="luogo">
+                <img src="majella.jpg" alt="Parco della Majella">
+                <div class="luogo-content">
+                    <div class="tempo">45 minuti</div>
+                    <h3>Parco della Majella</h3>
+                    Natura, sentieri ed escursioni.
                 </div>
-                <div class="comfort-item">
-                    <span>🍳</span>
-                    <span>Cucina attrezzata</span>
-                </div>
-                <div class="comfort-item">
-                    <span>🧺</span>
-                    <span>Lavatrice</span>
-                </div>
-                <div class="comfort-item">
-                    <span>🚿</span>
-                    <span>Bagno privato</span>
-                </div>
-                <div class="comfort-item">
-                    <span>🧴</span>
-                    <span>Set cortesia</span>
-                </div>
-                <div class="comfort-item">
-                    <span>🅿️</span>
-                    <span>Parcheggio</span>
+            </div>
+
+            <div class="luogo">
+                <img src="trabocchi.jpg" alt="Costa dei Trabocchi">
+                <div class="luogo-content">
+                    <div class="tempo">30 minuti</div>
+                    <h3>Costa dei Trabocchi</h3>
+                    Paesaggi unici e tradizione marinara.
                 </div>
             </div>
         </div>
+
+        <br><br>
+
+        <h2>Mappa</h2>
+        <iframe src="[google.com](https://www.google.com/maps?q=Via+G.+Di+Marzio+48+Spoltore&output=embed)"></iframe>
+
     </section>
 
-    <section class="posizione" id="posizione">
-        <div class="container">
-            <h2>Posizione Strategica</h2>
-            <p class="section-intro">Nel cuore delle colline abruzzesi, a pochi minuti da tutto ciò che desideri esplorare.</p>
-            
-            <div class="luoghi-grid">
-                <div class="luogo-card">
-                    <h3>🏖️ Spiagge di Pescara</h3>
-                    <p class="tempo">10 minuti in auto</p>
-                    <p>Sabbia dorata e stabilimenti attrezzati sulla costa adriatica.</p>
-                </div>
-                <div class="luogo-card">
-                    <h3>🏙️ Centro di Pescara</h3>
-                    <p class="tempo">10 minuti in auto</p>
-                    <p>Shopping, ristoranti, vita notturna e il lungomare più vivace d'Abruzzo.</p>
-                </div>
-                <div class="luogo-card">
-                    <h3>🏔️ Parco della Majella</h3>
-                    <p class="tempo">45 minuti in auto</p>
-                    <p>Escursioni, natura incontaminata e borghi medievali da scoprire.</p>
-                </div>
-                <div class="luogo-card">
-                    <h3>🍷 Cantine e Trabocchi</h3>
-                    <p class="tempo">20-30 minuti in auto</p>
-                    <p>La Costa dei Trabocchi e le eccellenze enogastronomiche abruzzesi.</p>
-                </div>
+    <!-- RECENSIONI -->
+    <section id="recensioni">
+        <h2>Recensioni</h2>
+
+        <div class="rec-grid">
+            <div class="rec-card">
+                “Accoglienza impeccabile, appartamento pulito e posizione perfetta.”
+                <div class="rec-author">— Ospite da Booking</div>
             </div>
+
+            <div class="rec-card">
+                “Un soggiorno rilassante tra natura e mare. Consigliatissimo!”
+                <div class="rec-author">— Ospite da Airbnb</div>
+            </div>
+
+            <div class="rec-card">
+                “Casa deliziosa, molto curata nei dettagli. Torneremo sicuramente.”
+                <div class="rec-author">— Ospite da Booking</div>
+            </div>
+        </div>
+
+        <div class="rec-btns">
+            <a href="[booking.com](https://www.booking.com/hotel/it/casa-pina-bed-and-breakfast.it.html)" target="_blank">Recensioni Booking</a>
+            <a href="[airbnb.it](https://www.airbnb.it/rooms/1146493088141468706/reviews)" target="_blank">Recensioni Airbnb</a>
         </div>
     </section>
 
-    <section class="contatti" id="contatti">
-        <div class="container">
-            <h2>Contattaci</h2>
-            <p class="section-intro">Per informazioni, disponibilità e prezzi, scrivici o chiamaci. Saremo felici di accoglierti!</p>
-            
-            <div class="contatti-wrapper">
-                <div class="contatti-info">
-                    <h3>Parla con noi</h3>
-                    
-                    <div class="contatto-item">
-                        <span>📞</span>
-                        <a href="tel:+393315761553">331 576 1553</a>
-                    </div>
-                    
-                    <div class="contatto-item">
-                        <span>💬</span>
-                        <a href="[wa.me](https://wa.me/393315761553)" target="_blank">Scrivici su WhatsApp</a>
-                    </div>
-                    
-                    <div class="contatto-item">
-                        <span>✉️</span>
-                        <a href="mailto:casapina2024@gmail.com">casapina2024@gmail.com</a>
-                    </div>
-                    
-                    <a href="[airbnb.it](https://www.airbnb.it/rooms/1146493088141468706)" target="_blank" class="airbnb-btn">
-                        <span>🏠</span>
-                        Vedi su Airbnb
-                    </a>
-                </div>
-                
-                <div class="mappa">
-                    <h3>📍 Dove Siamo</h3>
-                    <p>Spoltore (PE), Abruzzo<br>A 10 minuti dal mare e dal centro di Pescara</p>
-                    <a href="[google.com](https://www.google.com/maps/search/Spoltore+PE)" target="_blank" class="mappa-link">Apri in Google Maps →</a>
-                </div>
-            </div>
+    <!-- SOCIAL -->
+    <section>
+        <h2>Seguici</h2>
+        <div class="social-container">
+            <a href="[instagram.com](https://instagram.com/casapinaspoltore)" target="_blank">Instagram</a>
+            <a href="[booking.com](https://www.booking.com/hotel/it/casa-pina-bed-and-breakfast.it.html)" target="_blank">Booking</a>
+            <a href="[airbnb.it](https://www.airbnb.it/rooms/1146493088141468706)" target="_blank">Airbnb</a>
+            <a href="[expedia.it](https://www.expedia.it/Spoltore-Hotel-CASA-PINA-BED-BREAKFAST.h108890065.Informazioni-Hotel)" target="_blank">Expedia</a>
+        </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section id="contatti">
+        <h2>Contatti</h2>
+        <p class="intro">Per informazioni e prenotazioni:</p>
+
+        <div class="contatti-info" style="text-align:center;">
+            <p>📞 <a href="tel:+393315761553">331 576 1553</a></p>
+            <p>✉️ <a href="mailto:casapina2024@gmail.com">casapina2024@gmail.com</a></p>
+            <p>💬 <a href="[wa.me](https://wa.me/393315761553)">Scrivici su WhatsApp</a></p>
+            <p>🏠 <a href="[airbnb.it](https://www.airbnb.it/rooms/1146493088141468706)" target="_blank">Vedi su Airbnb</a></p>
         </div>
     </section>
 
     <footer>
-        <p class="nome">Casa Pina B&B</p>
-        <p>Spoltore (PE) • Abruzzo, Italia</p>
-        <p style="margin-top: 1rem; font-size: 0.8rem;">© 2024 Casa Pina. Tutti i diritti riservati.</p>
+        © 2024 Casa Pina B&B — Spoltore (PE)
     </footer>
+
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <a href="[wa.me](https://wa.me/393315761553)" class="wa-float">💬</a>
+
 </body>
 </html>
